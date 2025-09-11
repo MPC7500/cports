@@ -1,0 +1,54 @@
+pkgname = "codeblocks"
+pkgver = "25.03"
+pkgrel = 13644
+pkgdesc = "Free, open-source, cross-platform C, C++, and Fortran IDE"
+license = "GPL-3.0-or-later"
+url = "https://www.codeblocks.org"
+source = [f"https://sourceforge.net/projects/codeblocks/files/Sources/{pkgver}/codeblocks_{pkgver}.tar.xz"]
+sha256 = ["b0f6aa5908d336d7f41f9576b2418ac7d27efbc59282aa8c9171d88cea74049e"]
+
+# No test suite available
+options = ["!check"]
+
+build_style = "gnu_configure"
+configure_args = [
+    "--prefix=/usr",
+    "--with-contrib-plugins=all,-FileManager,-dragscroll",
+    "--enable-shared",
+    "--disable-static",
+    "--disable-werror",
+]
+hostmakedepends = [
+    "pkgconf",
+    "automake",
+    "autoconf",
+    "libtool",
+    "gettext",
+    "gmake",
+    "zip",
+]
+makedepends = [
+    "wxwidgets-devel",
+    "libzip-devel",
+    "hunspell-devel",
+    "tinyxml2-devel",
+    "zlib-ng-devel",
+    "glib-devel",
+    "gtk+3-devel",
+    "boost-devel",
+]
+depends = [
+    "wxwidgets",
+    "libzip",
+    "hunspell",
+    "tinyxml2",
+    "gcc",
+    "glib",
+    "gtk+3",
+]
+
+def prepare(self):
+    self.do("sh", "bootstrap")
+
+def post_install(self):
+    self.install_license("COPYING")

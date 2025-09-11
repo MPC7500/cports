@@ -1,0 +1,13 @@
+diff --git a/src/include/logmanager.h b/src/include/logmanager.h
+index ad4040f9..2d7368e2 100644
+--- a/src/include/logmanager.h
++++ b/src/include/logmanager.h
+@@ -34,7 +34,7 @@
+         return ::temp_string;
+     }
+ 
+-    inline wxString F(const wxString &msg, ...)
++    inline wxString F(const wxString msg, ...)
+     {
+         va_list arg_list;
+         va_start(arg_list, msg);
