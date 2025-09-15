@@ -2,7 +2,11 @@ pkgname = "shortwave"
 pkgver = "5.0.0"
 pkgrel = 0
 build_style = "meson"
-configure_args = ["--prefix=/usr",]
+# configure_args = [
+#    "--prefix=/usr",
+#    "--buildtype=release",
+#    "-Dwrap_mode=nodownload",
+#]
 
 hostmakedepends = [
     "cargo",
@@ -15,6 +19,7 @@ hostmakedepends = [
 ]
 
 makedepends = [
+	"cairo-devel",
     "dbus-devel",
     "gst-plugins-bad-devel",
     "gst-plugins-base-devel",
@@ -43,15 +48,15 @@ sha256 = [
 # No testsuite available
 options = ["!check"]
 
-#def configure(self):
-#    self.do(
-#        "meson", "setup",
-#        self.chroot_cwd / f"Shortwave-{self.pkgver}",
-#        "build",
-#        "--prefix=/usr"
-#    )
+def configure(self):
+    self.do(
+        "meson", "setup",
+        self.chroot_cwd,# / f"shortwave-{self.pkgver}",
+        "build",
+        "--prefix=/usr"
+    )
 
-def post_patch(self):
+def prepare(self):
     from cbuild.util import cargo
 
     cargo.Cargo(self, wrksrc=".").vendor()
