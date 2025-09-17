@@ -35,15 +35,6 @@ sha256 = ["982f74b7a75f592929dbca200bc7d9260f8937e69b7e41fb5b5c360b39c7a13e",]
 
 # No testsuite available
 options = ["!check"]
-    
-def configure(self):
-    self.do(
-        "meson", "setup",
-        ".",
-        "build",
-        "--prefix=/usr",
-        f"-Dhost_arch={self.profile().triplet}"
-    )
 
 def prepare(self):
     from cbuild.util import cargo
@@ -55,3 +46,4 @@ def init_build(self):
 
     renv = cargo.get_environment(self)
     self.make_env.update(renv)
+    del self.make_env["CARGO_BUILD_TARGET"]

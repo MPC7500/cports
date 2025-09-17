@@ -1,0 +1,12 @@
+diff --git a/src/meson.build b/src/meson.build
+index caf11a4..258fe9c 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -52,6 +52,6 @@ cargo_release = custom_target(
+     cargo, 'build',
+     cargo_options,
+     '&&',
+-    'cp', 'target' / rust_target / meson.project_name(), '@OUTPUT@',
++    'cp', meson.project_build_root() / 'target' / 'release' / meson.project_name(), '@OUTPUT@',
+   ]
+ )
