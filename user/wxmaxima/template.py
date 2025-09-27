@@ -3,8 +3,9 @@ pkgver = "25.04.0"
 pkgrel = 0
 build_style = "cmake"
 configure_args = [
-    f"-DCMAKE_INSTALL_PREFIX=/usr",
-    f"-DCMAKE_INSTALL_DATADIR=/usr/share",
+    "-DCMAKE_INSTALL_PREFIX=/usr",
+    "-DCMAKE_INSTALL_DATADIR=/usr/share",
+    "-DUSE_OPENMP=OFF",
 ]
 hostmakedepends = [
     "cmake",
@@ -26,12 +27,3 @@ options = ["!check"]
 
 def post_install(self):
     self.install_license("COPYING")
-    
-    import os
-    pixmaps = os.path.join(self.destdir, "usr/share/pixmaps")
-    if os.path.isdir(pixmaps):
-        try:
-            os.rmdir(pixmaps)
-            print("Removed empty /usr/share/pixmaps to satisfy lint.")
-        except OSError:
-            print("/usr/share/pixmaps exists and is not empty; leaving it in place.")
