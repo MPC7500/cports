@@ -2,7 +2,10 @@ pkgname = "audacious-plugins"
 pkgver = "4.5.1"
 pkgrel = 0
 build_style = "meson"
-configure_args = ["-Dgtk=false"]
+configure_args = [
+    "-Dqt=false",
+    "-Dgtk=false"
+]
 hostmakedepends = [
     "meson",
     "pkgconf",
@@ -16,9 +19,8 @@ makedepends = [
     "libogg-devel",
     "libsamplerate-devel",
     "libvorbis-devel",
-    "pipewire-devel",
-    "pulseaudio-qt-devel",
 ]
+checkdepends = []
 depends = [
     "audacious",
 ]
