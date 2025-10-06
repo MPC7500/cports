@@ -8,7 +8,6 @@ configure_args = [
 ]
 hostmakedepends = [
     "meson",
-    "openssl3",
     "pkgconf",
 ]
 makedepends = [
