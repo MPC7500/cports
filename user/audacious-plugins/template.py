@@ -13,14 +13,25 @@ hostmakedepends = [
 makedepends = [
     "alsa-lib-devel",
     "audacious-devel",
+    "curl-devel",
+    "faad2-devel",
     "ffmpeg-devel",
+    "flac-devel",
     "fluidsynth-devel",
     "glib-devel",
+    "libbs2b-devel",
+    "libcdio-devel",
+    "libcdio-paranoia-devel",
+    "libcue-devel",
+    "libmms-devel",
+    "libmodplug-devel",
     "libogg-devel",
     "libsamplerate-devel",
     "libvorbis-devel",
+    "neon-devel",
+    "openssl3-devel",
+    "soxr-devel",
 ]
-checkdepends = []
 depends = [
     "audacious",
 ]
