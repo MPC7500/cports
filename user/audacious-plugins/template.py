@@ -4,9 +4,10 @@ pkgrel = 0
 build_style = "meson"
 configure_args = [
     "-Dqt=false",
-    "-Dgtk=false"
+    "-Dgtk=true"
 ]
 hostmakedepends = [
+	"gettext",
     "meson",
     "pkgconf",
 ]
@@ -19,6 +20,8 @@ makedepends = [
     "flac-devel",
     "fluidsynth-devel",
     "glib-devel",
+    "gtk+3-devel",
+    "json-glib-devel",
     "libbs2b-devel",
     "libcdio-devel",
     "libcdio-paranoia-devel",
@@ -28,9 +31,12 @@ makedepends = [
     "libogg-devel",
     "libsamplerate-devel",
     "libvorbis-devel",
+    "mpg123-devel",
     "neon-devel",
     "openssl3-devel",
+    "opusfile-devel",
     "soxr-devel",
+    "wavpack-devel",
 ]
 depends = [
     "audacious",
@@ -43,7 +49,3 @@ sha256 = "f4feedc32776acfa9d24701d3b794fc97822f76da6991e91e627e70e561fdd3b"
 
 def post_install(self):
     self.install_license("COPYING")
-    
-@subpackage("audacious-plugins-devel")
-def _(self):
-    return self.default_devel()
