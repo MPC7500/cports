@@ -2,6 +2,10 @@ pkgname = "audacious"
 pkgver = "4.5.1"
 pkgrel = 0
 build_style = "meson"
+configure_args = [
+    "-Dqt=true",
+    "-Dgtk=false"
+]
 hostmakedepends = [
     "gettext",
     "glib-devel",
