@@ -7,7 +7,6 @@ configure_args = [
     "-Dgtk=true"
 ]
 hostmakedepends = [
-	"gettext",
     "meson",
     "pkgconf",
 ]
