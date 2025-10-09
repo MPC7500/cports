@@ -3,8 +3,8 @@ pkgver = "4.5.1"
 pkgrel = 0
 build_style = "meson"
 configure_args = [
-    "-Dqt=false",
-    "-Dgtk=true"
+    "-Dqt=true",
+    "-Dgtk=false"
 ]
 hostmakedepends = [
     "meson",
@@ -34,6 +34,7 @@ makedepends = [
     "neon-devel",
     "openssl3-devel",
     "opusfile-devel",
+    "qt6-qtbase-devel",
     "soxr-devel",
     "wavpack-devel",
 ]
