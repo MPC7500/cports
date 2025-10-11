@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IntelliJ IDEA Community
+GenericName=Java IDE
+Comment=The leading Java and Kotlin IDE by JetBrains
+Exec=intellij-idea-community %f
+Icon=idea
+Terminal=false
+Categories=Development;IDE;Java;
+StartupWMClass=jetbrains-idea
